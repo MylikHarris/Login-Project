@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.logintutorial.Features.FeedActivity;
-import com.example.logintutorial.databinding.ActivityMainBinding;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;

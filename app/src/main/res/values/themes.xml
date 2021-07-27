@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.LoginTutorial" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.LoginTutorial" parent="@style/Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -19,7 +19,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.LoginTutorial.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.LoginTutorial.AppBarOverlay" parent="@style/Theme.AppCompat.DayNight.DarkActionBar" />
 
-    <style name="Theme.LoginTutorial.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.LoginTutorial.PopupOverlay" parent="@style/Theme.AppCompat.Light" />
 </resources>
