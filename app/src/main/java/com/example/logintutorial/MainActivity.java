@@ -2,12 +2,18 @@ package com.example.logintutorial;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.logintutorial.Features.FeedActivity;
+import com.example.logintutorial.databinding.ActivityMainBinding;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
@@ -16,6 +22,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
+import static com.example.logintutorial.Constants.*;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
@@ -58,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     else{
-                        Toast.makeText(getApplicationContext(), "Invalid credentals", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -84,18 +92,25 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                Boolean Rick = true;
 
                 //TODO: Save the Token in a content provider
+                SharedPreferences settings = getApplication().getSharedPreferences(APP_PREFS, 0);
+                SharedPreferences.Editor editor = settings.edit();
+                editor.putString(AUTH_TOKEN,response.body().token);
+                editor.apply();
 
 
                 //TODO: Navigate to the FeedActivity
+                Intent in=new Intent(MainActivity.this,FeedActivity.class);
+                startActivity(in);
+
             }
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
 
             }
+
         });
     }
 }

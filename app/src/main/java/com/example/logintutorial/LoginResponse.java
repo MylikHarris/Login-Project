@@ -1,6 +1,6 @@
 package com.example.logintutorial;
 
-public class LoginResponse {
+public class LoginResponse{
     final String token;
 
     LoginResponse(String token) {
